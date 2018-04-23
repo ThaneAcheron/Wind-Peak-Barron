@@ -1,0 +1,342 @@
+<!DOCTYPE html> 
+ <html>
+  <head> 
+   <!-- Meta Data -->
+   <meta name=”copyright” content= ”WindPeak&trade;&amp;CO &copy; 2016.”>
+   <meta http-equiv=”content-type” content=”text/html”; charset=”UTF-8”>
+   <meta name="robots" content="noindex" />
+   <meta name=”googlebot” content=”noarchive”>   
+   <!--Title-->
+   <title> WindPeak Baron </title>  
+   <!--Title icon-->
+   <link rel="shortcut icon" type="image/x-icon" href="Resources/icon.png" />
+   <!--Reference the local Qjuery Library-->
+   <script src = "Script/jquery-1.12.1.js"></script>
+   <!--Reference the external javascript library-->
+   <Script src = "Script/JavaScript.js"></script>
+   <!--Embeded script-->
+   <script> 
+   //JQuery Script. Onload Event:
+   $(function(){  
+   
+   //This function animates the vertical scroll to the desired anchor
+   function scrollToAnchor(aid){
+   var aTag = $("a[name='"+ aid +"']");
+   $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+   }
+   
+   //Apply an eventlistener and call the scroll function to the anchors
+   $("#menuBtn").click(function() {scrollToAnchor('menuAnchor');});
+  });
+  </script> 
+  <!-- External StyleSheet -->
+  <style>
+  @import url(Styles/StyleSheet.css);
+  </style>
+  <!-- Embeded styles -->
+  <style>  
+    
+	.footerIcon:hover {
+     -webkit-background-size: 80px;
+     background-size: 80px;
+    }
+	
+	.footerIcon {
+     -webkit-background-size: 45px;
+     background-size: 45px;
+     background-repeat: no-repeat;
+     background-position: center;
+     border-radius: 50%;
+     -webkit-background-clip: border-box;
+     background-clip: border-box;
+     -webkit-transition: background-size 0.2s;
+     transition: background-size 0.2s;
+     -webkit-transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+     transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+
+     display:block;
+     width: 45px;
+     height: 45px;
+     text-decoration: none;
+     cursor: pointer;
+     overflow: hidden;
+     text-indent: 100%;
+     white-space:nowrap;
+    }
+	
+    #section-one { 	 
+	 background-image:url(Resources/Header.png);
+	 background-color:black;
+	 background-repeat:no-repeat;
+	 background-position:center top;
+	 padding-bottom:20px;
+	 -webkit-background-size:100%;
+	 background-size:100%;
+	 height: 600px;
+	 -webkit-animation-duration: 3s;
+	 animation-duration: 3s; 
+	 -webkit-animation-name: fadeIn; 
+	 animation-name: fadeIn;
+	 text-align:center;
+	}	 
+	
+	#MultiColumnDescript { 
+	-webkit-column-count:3; 
+	-webkit-column-gap:20px; 
+	}
+	
+	#reservationsBtn { 
+	 color:white;
+	}
+	
+	#homeBtn { 
+	 color:white;
+	}
+	
+   </style> 
+  </head>
+  <body> 
+    <!-- Sticky Footer -->
+	<!-- inline-styles, Note the flex display-->
+	<!-- I have placed the footer at the top to prevent click area problems -->
+	<footer style = "width: 100%; height: 90px; background-image:url(Resources/touchdock.png); background-position:center top;" >
+	 <div style = "display:flex; padding-top:45px; -webkit-box-orient:horizontal; -webkit-box-pack:center;">
+	   <input  class="footerIcon" type="image" id = "SkipL" onclick = "PlayPrev()" src = "Resources/SkipL.png"/>
+	   <input  class="footerIcon" type="image" id = "playPauseBtn" onclick = "PlayPuaseMusic()" src = "Resources/PlayPauseButton.png"/>
+	   <input  class="footerIcon" type="image" id = "SkipR" onclick = "PlayNext()" src = "Resources/SkipR.png"/>
+	   <a class="footerIcon" href="Resources/StudentCredentials.png" download href="website.net/link" id="footerIcon" style = "background-image: url('Resources/StudentDownload.png');"></a>
+	   <a class="footerIcon" href="https://twitter.com/?lang=en" target="_blank" id="footerIcon" style = "background-image: url('Resources/TwitterIcon.png');"></a>
+	   <a class="footerIcon" href="https://www.facebook.com/" target = "_self" id="footerIcon" style = "background-image: url('Resources/FaceBookIcon.png');"></a>
+	   <a class="footerIcon" href="https://plus.google.com/" target = "_top" id="footerIcon" style = "background-image: url('Resources/GooglePlus.png');"></a>
+	   <a class="footerIcon" href="https://www.instagram.com/" target = "_parent" id="footerIcon" style = "background-image: url('Resources/InstagramIcon.png');"></a>
+	   <p style = "color:white; font-size:14px;"> &nbsp; Connect with us </p>
+	   <div style = "text-align:right; width:16%; padding-top:4.5px;"> 	
+	   <p style = "color:white; opacity:0;" id = "songName"> From Past to Present </p>
+	   </div>
+	   <div style = "text-align:right; width:46%; vertical-align:top;"> 	 
+	  	  <p style = "color:white; font-size:10px;"> &nbsp; WindPeak&trade;&amp;CO &copy; 2016<br> &nbsp; Call us and book on 083 233 8246 </p>
+	   </div>
+     </div>
+	 <audio id = "audioController">
+        <source src="Audio/From Past to Present.mp3" type="Audio/mp3" />
+     </audio>
+    </footer>
+   
+   <div id = "Container" >  
+    <!-- HEADER --> 
+    <div id = "section-one">
+	 <!-- Navigation -->
+	 <nav>
+      <table> 
+        <tr>
+         <th style = "width:25%;">
+	      <!--Anchor with animations-->
+          <a  href = "#" class = "navButton" id = "menuBtn" onmouseenter = "AnimCenterLeft()" onmouseleave = "AnimLeftCenter()" > Menu </p>
+	     </th>
+	     <th style = "width:50%;">
+	 	 <!--HomeText-->
+	      <a  href = "#" class = "navButton"> Home </p>
+	     </th>
+	     <th style = "width:25%;">
+		  <!--HyperLink with animations-->
+          <a  href = "ReservationForm.html" class = "navButton" onmouseenter = "AnimCenterRight()" onmouseleave = "AnimRightCenter()" > Reservations </p>
+         </th>
+       </tr>
+      </table>
+	 </nav>
+	
+	 <!--Animated images and Main Text-->
+	 <section>
+	  <!-- Underline Image -->
+      <div  id = "NavUnderLine"  style = "width:100%;">
+	     <image id = "underlineImg" src = "Resources/WhiteLineUnderline.png"/>	  	 
+	     <!-- HeadingText and Symbol -->  
+         <h1 id = "headerTxt" > WindPeak &nbsp; Baron </h1>
+	     <image id = "symbolImg" src = "Resources/Symbol.png">
+	  </div>
+	 <section>
+	 
+   </div>
+   
+   <!-- BODY --> 
+   <div <!-- Famous Meals -->>
+     <h2 style = "color:white; width:100%; text-align:center; font-size:27px; margin-bottom:5px;"> Famous &nbsp; Dishes </h2>
+	   
+	   <!--Inline Style Examples:-->
+	   <!-- Section 1 -->
+	   <section class = "mealSection">
+         <image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+         <span style = "float:left; width: 50%; height:400px; background-image:url(Resources/FamousFoodsBackgroundR.png); background-size:cover; text-align:center;">
+		 <article style = "padding-top:40px;">
+           <h1>Venison &nbsp; with &nbsp; ham &nbsp; and &nbsp; mead</h1>
+           <p>Roast boar might have been the Vikings' party food of choice but venison was almost as popular, as Jesper's delicious recipe proves.</p>
+           </article>
+		   <details>
+             <summary> Contains: </summary>
+			  <!--Ordered list-->
+              <ol type = "i"> 
+                <li>Four slices of mature ham or good bacon</li>
+                <li>Butter</li> 
+                <li>Honey </li> 
+                <li>Beetroots</li>
+				<li>Mushrooms</li>
+              </ol>
+           </details>
+         </span>
+         <image src = "Resources/MealOne.jpg" style = "float:right; width:50%; height:400px; background-repeat:no-repeat; background-size:cover;"> 
+         </image>
+	   </section>
+	 
+	   <!-- Section 2 -->
+	   <section class = "mealSection">
+         <image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+         <image src = "Resources/MealThree.jpg" style = "float:left; width: 50%; height:400px; background-size:cover">
+         </image>
+         <span style = "float:right; background-image:url(Resources/FamousFoodsBackgroundL.png); width:50%; height:400px; background-repeat:no-repeat; background-size:cover; text-align:center;"> 
+		  <article style = "padding-top:40px;">
+           <h1>Sweet &nbsp; cabbage &nbsp; salad</h1>
+           <p> This salad is quite simple and goes well with all meats, but it can be a meal in itself, a real norse classic. </p>
+           </article>
+		   <details>
+             <summary> Contains: </summary>
+			  <!--Unordered List -->
+              <ul style = "list-style-type:circle;"> 
+                <li>Sweetheart cabbage</li>
+                <li>Baby leaks</li> 
+                <li>Pear</li> 
+                <li>Apple cider vinegar</li>
+				<li>Black &amp; Blue berries</li>
+				<li>Rapeseed oil</li>
+				<li>Parsley</li>
+              </ul>
+           </details>
+         </span>
+	   	</section>
+	   
+	    <!-- Section 3 -->
+	   	<section class = "mealSection">
+         <image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+  	     <span style = "float:left; width: 50%; height:400px; background-image:url(Resources/FamousFoodsBackgroundR.png); background-size:cover; text-align:center; box-align:center;">
+		  <article style = "padding-top:40px;">
+           <h1>Sage &nbsp; and &nbsp; Garlic &nbsp; Roasted &nbsp; Chicken &nbsp; with &nbsp; Pomegranate</h1>
+           <p>With a savory blend of flavors and super tender and juicy meat, Sage and Garlic Roasted Chicken with Pomegranate and Black Pepper Glaze is a truly unforgettable meal.</p>
+           </article>
+		   <details>
+             <summary> Contains: </summary>
+			 <!-- Multiple Column -->
+			 </br>
+              <div id = "MultiColumnDescript"> 
+			  Fryer chicken </br> 
+			  Fresh sage </br> </br>
+			  Kosher salf </br> 
+			  Garlic </br> 
+			  Butter </br> 			  
+			  Pomegranate </br> 
+			  Black pepper </br>
+			  </div>
+           </details>
+         </span>
+         <image src = "Resources/MealTwo.jpg" style = "float:right; width:50%; height:400px; background-repeat:no-repeat; background-size:cover;"> 
+         </image>
+		<section style = "height:424px">
+	
+    </div> 
+	
+	<!--Divider-->			
+	<image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+	
+	<!-- Menu -->
+	<div style = "background-image:url(Resources/MenuBackground.jpg); width:100%; height:1350px; background-size:cover; background-repeat:no-repeat; background-position:center;">
+	 <!-- Anchor -->
+     <a name="menuAnchor"></a>
+	 <!-- Heading -->
+	 <h2  id = "menuHeading" style = "color:white; width:100%; text-align:center; font-size:27px; margin-bottom:5px; margin-top:0px"> Menu </h4>
+	 <!-- Menu BackgroundImage, Div -->
+	 <div style = "width:100%; background-image:url(Resources/Menu.jpg); height:1300px; background-repeat:no-repeat; background-position:center top; background-size:70%;">	 
+	   <!-- LeftSide Menu -->
+	   <div style = "float:left; height:1000px; width: 50%;"> 
+	    <!--Two floating discriptive lists listing and describing the food for sale-->
+	    <dl class = "mainMealsList" style = "padding-left:32%;" > 
+	      <h3> Main &nbsp; Meals </h3>
+		  <dt class = "menuDt" style = "padding-top:3%;" >Venison Sandwich 
+		    <dd class = "menuDd"> The perfect slice for a wintery outdoor lunch. </dd>
+		  </dt>
+		  <dt class = "menuDt"> skyr  
+		    <dd class = "menuDd" > Skyr is an Icelandic staple, a thick, rich, fresh cheese similar in consistency to Greek yoghurt. </dd>
+		  </dt>
+		  <dt class = "menuDt"> Cured herrings
+		    <dd class = "menuDd" > Pickled herring is an ancient Nordic stalwart and unbeatable as a rye-bread topper. </dd>
+		  </dt>
+		  <dt class = "menuDt" > Potato Salad 
+		    <dd class = "menuDd" > An aromatic potato salad. </dd>
+		  </dt> 
+		  <dt class = "menuDt"> Gravadlax in dill 
+		    <dd class = "menuDd"> This is the quintessential Scandinavian showstopper. </dd>
+		  </dt>
+		  <dt class = "menuDt"> Beetroot Ginger soup
+		    <dd class = "menuDd" > A smooth potage that is as vibrant in colour as it is in flavour </dd>
+		  </dt>
+		  <dt class = "menuDt"> Sildesalat
+		    <dd class = "menuDd"> A refreshing salad to serve on dark rye as part of a Danish-style platter. <dd>
+		  </dt>
+		  <dt class = "menuDt"> Roast Leg Of Lamb
+		    <dd class = "menuDd" > A dramatic presentation of a whole leg of lamb mixed with herbs.<dd>
+		  </dt>
+		  <dt class = "menuDt"> Gravadlax
+		    <dd class = "menuDd"> Classic cured salmon is served with a bright mustard-honey sauce. <dd>
+		  </dt>
+		  <dt class = "menuDt"> Kohlrabi
+		    <dd class = "menuDd" > "A Midsummer's Dream," Potato salad, boiled potatoes are warmed in melted butter.<dd>
+		  </dt>
+		  <dt class = "menuDt"> Filmjolkslimpa
+		    <dd class = "menuDd" > This rustic whole wheat brown bread is sweetened with molasses and almonds, smeared with sweet butter. <dd>
+		  </dt>
+		  <dt class = "menuDt"> Julskinka
+		    <dd class = "menuDd"> Ham is cooked in an aromatic soup, then glazed and topped with breadcrumbs. <dd>
+		  </dt>
+		</dl>
+	 </div> 
+	 
+	 <aside style = "float:right; height:1000px; width: 50%;"> 
+	    <dl class = "desertMeals" style = "padding-left: 2%;" > 
+	      <h3> Desserts </h3>
+		  <dt class = "menuDt" style = "padding-top:3%;" > Kladdkaka 
+		    <dd class = "menuDd"> A gooey, sticky, chocolatey affair best served generously with lots of whipped cream.</dd>
+		  </dt>
+		  <dt class = "menuDt"> Spice cookies 
+		    <dd class = "menuDd" > A crunch of sugar, sweet spices and buttery golden syrup.  </dd>
+		  </dt>
+		  <dt class = "menuDt"> Chilled Rice Pudding
+		    <dd class = "menuDd" >  Traditionally made with double cream and sugar and topped with cherry compote. </dd>
+		  </dt>
+		  <dt class = "menuDt" > Cardamom buns 
+		    <dd class = "menuDd" > The spice that defines Scandi baking, cardamom is edible magic in these milky-sweet buns, excellent for a midwinter fika. </dd>
+		  </dt> 
+		  <dt class = "menuDt"> Dopp I Gryta 
+		    <dd class = "menuDd"> After cooking ham, the broth in which it boiled is strained and reduced, and then served fondue-style. </dd>
+		  </dt>
+		  <dt class = "menuDt"> Red berry pudding
+		    <dd class = "menuDd" > Berries are transformed into a thick, silky pudding in this simple Danish dish, which can be served warm or cold. </dd>
+		  </dt>
+		  <dt class = "menuDt"> Ginger Bread Cookies
+		    <dd class = "menuDd"> This recipe comes from the 80-year-old Vete-Katten bakery in Stockholm. <dd>
+		  </dt>
+		  <dt class = "menuDt"> Saffron Buns
+		    <dd class = "menuDd" >Mildly sweet pastries, based on a recipe given to us by Gunilla von Heland<dd>
+		  </dt>
+		  <dt class = "menuDt"> Fruitcake
+		    <dd class = "menuDd"> Probably the fruitiest and most delicious cake ever made. <dd>
+		  </dt>
+		  <dt class = "menuDt"> Peppermint Caramels
+		    <dd class = "menuDd" style = "width:20%" > "This dessert, topped with crushed peppermint candies, is one of many versions of kola, a kind of semisoft toffee adored all over.<dd>
+		   </dt>
+		   </dl>
+	  </aside>
+	 </div> 
+    </div>	 
+	<!-- An empty div to make space for the footer -->
+	<div style = "height:45px;">
+	</div>	
+  </div>  	
+ <body>
+<html>

@@ -1,0 +1,24 @@
+ <!-- Loaded by AJAX in the submittion form -->
+ <div style = "height:700px; text-align:center; background-image:url(Resources/BackgroundConfirm.jpg); background-size:cover; background-repeat:no-repeat;">   
+    <!--Main-->
+    <image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+   	<!-- Anchor -->
+    <a name="ConfirmAnchor" ></a>
+    <h2 style = "color:white;"> Confirmation </h2>
+    <p style = "color:white"> Please check that your reservation details are correct. </p>
+    
+	<!--Details Container -->
+	<div id = "detailsContainer">
+       <p style = "color:white" id = "detailsText"> </p>	   
+	   <!--XmlHttpRequest GET  (SendMessage) to the domain Reciever.html -->
+       <input id = "confirmBtn" type = "button" value = "Perfect" onclick = "SendMessage()" class = "button" style = "width:160px; height:50px; margin-bottom:50px; background-color:white; border-color:white;"/></br>
+	</div>
+	 
+	<!--Iframe Container -->
+	<div id = "iframeContainer">
+       <iframe id = "iframeDetails" style = "width:80%; height:550px; border-color:transparent; border-width:0px; display:none; " src = "http://localhost:4183/WindPeak%20Inn/Reciever.html" ></iframe>
+    </div>	
+ </div>
+ 
+ 	  
+	  

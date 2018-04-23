@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html> 
+ <head> 
+ <!-- Meta Data -->
+ <meta name=”copyright” content= ”WindPeak&trade;&amp;CO &copy; 2016.”>
+ <meta http-equiv=”content-type” content=”text/html”; charset=”UTF-8”>
+ <meta name="robots" content="noindex" />
+ <meta name=”googlebot” content=”noarchive”>
+ <script>
+  //OnRecieve Message
+  function receiveMessage(event) {
+     var content = document.getElementById("content");
+     content.innerHTML += event.data;
+    }
+  window.addEventListener("message", receiveMessage,false);
+ </script>
+ <!--External StyleSheet -->
+ <style>
+  @import url(Styles/StyleSheet.css);
+ </style>
+ </head> 
+ <body style = "background-color:transparent; color:white;"> 
+   <div style = "text-align:center;" id="content">
+     <p style = "font-size:25px;"> Thank you for your Submission</p>
+     <p> We'll contact you soon. </p>
+   </div>
+ </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html> 
+ <html> 
+  <head>
+    <!-- Meta Data -->
+    <meta name=”copyright” content= ”WindPeak&trade;&amp;CO &copy; 2016.”>
+    <meta http-equiv=”content-type” content=”text/html”; charset=”UTF-8”>
+    <meta name="robots" content="noindex" />
+    <meta name=”googlebot” content=”noarchive”>
+   
+    <!--Title-->
+    <title> WindPeak Baron </title>  
+    <!--Title icon-->
+    <link rel="shortcut icon" type="image/x-icon" href="Resources/icon.png" />
+	<!--Reference the external javascript libraries-->
+    <Script src = "Script/JavaScript.js"></script>
+	<!--Reference the local Qjuery Library-->
+    <script src = "Script/jquery-1.12.1.js"></script>
+	<!--AJAX-->
+	<script src = "Script/AJAX.js"></script>
+    <!--Embeded Script -->	
+	<script> 
+	//Sending a message to the reciever Cross-document messaging
+    function SendMessage() { 
+	  //Reference controls
+      var iframeContainer  = document.getElementById('iframeContainer')
+      var detailsContainer = document.getElementById('detailsContainer')
+      var iframe = document.getElementById("iframeDetails");  
+	  
+	  //Hide the submit button
+      document.getElementById('submitBtn').setAttribute('style','display:none;');
+	  
+	  //Animate the Iframe
+      iframe.setAttribute('style','display:inline; width:80%; height: 850px;');
+      iframeContainer.setAttribute('style', 'display:block;');
+	  detailsContainer.setAttribute("style" ,"  animation-name:reduceHeight; animation-duration:2s;");
+	  setTimeout(function(){ detailsContainer.setAttribute('style','display:none;') }, 2000);
+      
+	  //Post the message 
+      iframe.contentWindow.postMessage(CreateFormString(),"http://localhost:4183/WindPeak%20Inn/Reciever.html");
+	  //XmlHttpRequest POST (postUserRes) to the server (The posts to the php script that writes the user reservation details to a text file. 
+      postUserRes();
+    }
+	   //This function animates the vertical scroll to the desired anchor	 
+	 $(document).ready(function() {	  
+     $('form').on('submit', function(e){
+     readContact();      
+      //Apply an eventlistener and call the scroll function to the anchors   
+      return false;    
+  });
+});
+	</script>
+	<!--External StyleSheet-->
+	<style>
+      @import url(Styles/StyleSheet.css);
+    </style>
+	<!--Embeded styles -->	
+	<style> 
+	body { 
+	 margin: 0px;
+	 background-color:black; 	 
+	}
+	
+	 #section-one { 	 
+	 background-image:url(Resources/Header.png);
+	 background-color:black;
+	 background-repeat:no-repeat;0
+	 background-position:center top;
+	 padding-bottom:20px;
+	 background-size:100%;
+	 height: 600px;
+	 animation-duration: 3s; 
+	 animation-name: fadeIn;
+	 text-align:center;
+	 }
+	 
+	 table { 
+	 width:100%;
+	 padding-top:2%;
+	}
+	
+	.footerIcon:hover {
+     -webkit-background-size: 80px;
+     background-size: 80px;
+    }
+	
+	footer {
+	 position: fixed; 
+     bottom: 0; 
+	 -webkit-animation-duration: 3s; 
+	 animation-duration: 3s; 
+	 -webkit-animation-name: fadeIn; 
+	 animation-name: fadeIn;
+    }
+	
+	.footerIcon {
+     -webkit-background-size: 45px;
+     background-size: 45px;
+     background-repeat: no-repeat;
+     background-position: center;
+     border-radius: 50%;
+     -webkit-background-clip: border-box;
+     background-clip: border-box;
+     -webkit-transition: background-size 0.2s;
+     transition: background-size 0.2s;
+     -webkit-transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+     transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+
+     display:block;
+     width: 45px;
+     height: 45px;
+     text-decoration: none;
+     cursor: pointer;
+     overflow: hidden;
+     text-indent: 100%;
+     white-space:nowrap;
+    }
+	
+	.Descriptions{ 
+	 margin-top:5px; 
+	 margin-bottom:10px;
+	}
+	
+    .button {
+      opacity:0.9;
+    }
+	
+    .button:hover {
+     animation-fill-mode: forwards;
+     animation-duration: 0.3s; 
+     animation-name:OpacityGrow;
+    }
+    
+	.ui { 
+	box-shadow: 10px 10px 5px black;
+	}
+  </style> 
+  </head> 
+  <body> 
+    <!-- I have placed the footer at the top to prevent click area problems -->
+	<footer style = "width: 100%; height: 90px; background-image:url(Resources/touchdock.png); background-position:center top; " >
+	 <div style = "display:flex; padding-top:45px; -webkit-box-orient:horizontal; -webkit-box-pack:center;">
+	   <input  class="footerIcon" type="image" id = "SkipL" onclick = "PlayPrev()" src = "Resources/SkipL.png"/>
+	   <input  class="footerIcon" type="image" id = "playPauseBtn" onclick = "PlayPuaseMusic()" src = "Resources/PlayPauseButton.png"/>
+	   <input  class="footerIcon" type="image" id = "SkipR" onclick = "PlayNext()" src = "Resources/SkipR.png"/>
+	   <a class="footerIcon" href="Resources/StudentCredentials.png" download href="website.net/link" id="footerIcon" style = "background-image: url('Resources/StudentDownload.png');"></a>
+	   <a class="footerIcon" href="https://twitter.com/?lang=en" target="_blank" id="footerIcon" style = "background-image: url('Resources/TwitterIcon.png');"></a>
+	   <a class="footerIcon" href="https://www.facebook.com/" target = "_self" id="footerIcon" style = "background-image: url('Resources/FaceBookIcon.png');"></a>
+	   <a class="footerIcon" href="https://plus.google.com/" target = "_top" id="footerIcon" style = "background-image: url('Resources/GooglePlus.png');"></a>
+	   <a class="footerIcon" href="https://www.instagram.com/" target = "_parent" id="footerIcon" style = "background-image: url('Resources/InstagramIcon.png');"></a>
+	   <p style = "color:white; font-size:14px;"> &nbsp; Connect with us </p>
+	   <div style = "text-align:right; width:18.7%; padding-top:11px;"> 	
+	   <progress value="0" max="100" id = "formProgress" style = "z-index:6;" ></progress>
+	   </div>
+	   <div style = "text-align:right; width:43.2%; vertical-align:top;"> 	 
+	  	  <p style = "color:white; font-size:10px;"> &nbsp; WindPeak&trade;&amp;CO &copy; 2016<br> &nbsp; Call us and book on 083 233 8246 </p>
+	   </div>
+     </div>
+	 <audio id = "audioController">
+        <source src="Audio/From Past to Present.mp3" type="Audio/mp3" />
+     </audio>
+    </footer>
+    <div id = "section-one">
+	 <!-- Navigation -->
+	 <nav>
+      <table> 
+        <tr>
+         <th style = "width:25%;">
+	      <!--Anchor with animations-->
+          <a  href = "HomePage.html#menuAnchor" class = "navButton" id = "menuBtn" onmouseenter = "AnimCenterLeft()" onmouseleave = "AnimLeftCenter()" > Menu </p>
+	     </th>
+	     <th style = "width:50%;">
+	 	 <!--HomeText-->
+	      <a  href = "HomePage.html" class = "navButton"> Home </p>
+	     </th>
+	     <th style = "width:25%;">
+		  <!--HyperLink with animations-->
+          <a  href = "ReservationForm.html" class = "navButton" onmouseenter = "AnimCenterRight()" onmouseleave = "AnimRightCenter()" > Reservations </p>
+         </th>
+       </tr>
+      </table>
+	 </nav>
+	
+	 <!--Animated images and Main Text-->
+	 <section>
+	  <!-- Underline Image -->
+      <div  id = "NavUnderLine"  style = "width:100%;">
+	     <image id = "underlineImg" src = "Resources/WhiteLineUnderline.png"/>	  	 
+	     <!-- HeadingText and Symbol -->  
+         <h1 id = "headerTxt"> WindPeak &nbsp; Baron </h1>
+	     <image id = "symbolImg" src = "Resources/Symbol.png">
+	  </div>
+	 </section>	 
+   </div>
+   <!--Form-->
+    <!--Reservations -->
+
+   <form id = "form" method = "post" >
+     <!-- Note there are this a transparent border for implementation sake -->
+     <table style = "width:100%; border-color:rgba(0, 0, 0, 0);; background-image:url(Resources/MenuBackground.jpg); background-size:cover; background-repeat:no-repeat;" border = "2">
+	   <tr>
+	     <!-- Heading -->
+	     <th colspan = "3">	  
+           <h2 style = "color:white;"> Reservations </h2>
+		   <image src = "Resources/LongDivider.png" style = "background-size:cover; width:100%;"/>
+		   <p class = "Descriptions"style = "color:white;">All fields are required</p>
+		   <image id = "underlineImg" src = "Resources/WhiteLineUnderline.png"/>	
+	     </th> 
+	   </tr> 
+	   <tr>
+	     <!--Name-->
+	     <td style = "text-align:center;">  
+		   <p class = "Descriptions"style = "color:white;">Name/Surname</p>
+		   <input type="text" name="bday"  onchange = "progressValues('uiName')" class = "ui" id = "uiName"  ></input>
+	     </td>
+	   </tr>
+	   <tr>
+	     <!--Email-->
+	     <td style = "text-align:center;"> 
+		   <p class = "Descriptions" style = "color:white;"> Email </p>
+		   <input type="email" name="bday" onchange = "progressValues('uiEmail')" class = "ui" id = "uiEmail"></input>
+	     </td>
+	   </tr>
+	   <tr>
+	      <!--Number-->
+	      <td style = "text-align:center;"> 
+		    <p class = "Descriptions" style = "color:white;"> Contact Number </p>
+		    <input type="tel" name="bday" class = "ui" onchange = "progressValues('uiContact')" id = "uiContact" ></input>
+	      </td>
+	   </tr>
+	   <tr>
+	     <!--Number of Seats-->
+	     <td style = "text-align:center;"> 
+		   <p class = "Descriptions" style = "color:white;"> Number of Seats </p>
+		   <input type="number" min = "1" max = "12" name="bday" onchange = "progressValues('uiSeats')" oninput = "outputControl()" class = "ui" id = "uiSeats" ></input>
+	     </td>
+	   </tr>
+	   <tr>
+	    <!--Vegetarians-->
+	     <td style = "text-align:center;"> 
+		   <p class = "Descriptions"style = "color:white;">Vegetarians</p>
+		   <input type="checkbox" onclick = "CheckedVeg();" name="bday" class = "ui" id = "uiVegCheck"></input>
+		   </br>
+		   <input type="number" min = "1" max = "12" name="bday" class = "ui" id = "uiVegNumber" style = "width:60px; display:none;"></input>
+	     </td>
+	   </tr>
+	   <tr>
+	    <!--Date and time-->
+	    <td style = "text-align:center;"> 
+			<p class = "Descriptions" style = "color:white;"> Date &amp; Time </p>
+		    <input type="time" name="bday" class = "ui" onchange = "progressValues('uiTime')" id = "uiTime"></input>
+		    <input type="date" name="bday" class = "ui" onchange = "progressValues('uiDate')" id = "uiDate"></input>		
+	    </td>
+	   </tr>
+	   <tr>
+	     <!--MAP-->
+	     <td style = "text-align:center;"> 
+			<image id = "underlineImg" src = "Resources/FloorPlan.png" style = "width:50%; height:600px; padding-top:10px;"/>	</br>
+	     </td>
+	   </tr>
+	   <tr>
+	     <!--DropDownList (Location) and Table Number-->
+	     <td style = "text-align:center;"> 
+		   <p class = "Descriptions" style = "color:white;"> Location </p>
+		   <input list="numberList" name="nList" oninput = "outputControl()" class = "ui" id = "uiLocation" onchange = "progressValues('uiLocation')"/>
+		   <datalist id="numberList"> 
+		     <option value="Hall of Valor (R150)" />
+             <option value="Redorans Retreat (R75)" />
+             <option value="Brittleshin Pass (R45)" />
+		     <option value="Rimerock Burrow (R45)" />
+           </datalist>
+		   <p class = "Descriptions" style = "color:white;"> Table </p>
+		   <p style = "color:white; display:inline;"> 1 </p> <input type = "radio" name="TableRadioBtn" class = "ui" id = "uiRadio1" onchange = "progressValues('uiRadio')"/>
+		   <input type = "radio" name="TableRadioBtn" class = "ui" id = "uiRadio2" onchange = "progressValues('uiRadio')" /> <p style = "color:white; display:inline;"> 2 </p>
+	     </td>
+	   </tr>
+	   <tr>
+	     <!--Calulations-->
+	     <td style = "text-align:center; height:100px;">   
+		   <input class = "ui" type="number" id="uiInput1" value="0" readonly style = "margin-top:0px;" /> 
+		   <p style = "color:white; display:inline;"> * </p> 
+		   <input class = "ui" type="number" id="uiInput2" value="0" readonly /> </br> </br>
+		   <p style = "color:white; display:inline;"> R </p> 
+		   <output name="x" for="uiInput1*uiInput2"  style = "color:white;" id = "outputElement"></output>
+	     </td>
+	   </tr>
+	   <tr>
+	     <!--Submit and Reset-->
+	     <td style = "text-align:center; height:100px;"> 
+		   <input type = "Reset" onclick = "Clear()" class = "button" style = "width:150px; height:60px; margin-bottom:50px; background-color:white; border-color:white; box-shadow: 10px 10px 5px black;"/>
+		   <input id = "submitBtn" type = "submit" onclick = "valdidateForm(), sendit()" class = "button" style = "width:150px; height:60px; margin-bottom:50px; background-color:white; border-color:white; box-shadow: 10px 10px 5px black;" /> 
+	     </td>
+	   </tr>
+	 </table>
+   </form>
+   <!-- Confirmation -->
+    <!--We're using AJAX here -->
+   <div id = "ConfirmationContent">
+   </div>
+ </body>
+</html> 

@@ -1,0 +1,279 @@
+  /* Animation and Transitions */
+    /* Animations */
+	/* Reduce Height */
+    -webkit-@keyframes reduceHeight { 
+	 0% { 	  
+	      height: 400px;
+	      opacity: 1; 
+	  }
+	 50% { 
+	  	 height: 200px;
+	     opacity: 0.5; 
+	 }
+	 100% { 
+	 	 height: 0px;
+	     opacity: 0; 
+	  }
+	}
+   @keyframes reduceHeight { 
+	 0% { 	  
+	      height: 400px;
+	      opacity: 1; 
+	  }
+	 50% { 
+	  	 height: 200px;
+	     opacity: 0.5; 
+	 }
+	 100% { 
+	 	 height: 0px;
+	     opacity: 0; 
+	  }
+	}
+	      /*Fade-in*/
+	-webkit-@keyframes fadeIn { 
+	 0% { 
+	 -webkit-transform: scale (0.1); 
+	 transform: scale (0.1); 
+	 opacity: 0; 
+	  }
+	 60% { 
+	  -webkit-transform: scale (1.2); 
+	  transform: scale (1.2); 
+	  opacity: 1;
+	 }
+	 100% { 
+	 -webkit-transform: scale(1); 
+	 transform: scale(1);
+	  }
+	}
+
+	@keyframes fadeIn { 
+	 0% { 
+	 -webkit-transform: scale (0.1); 
+	 transform: scale (0.1); 
+	 opacity: 0; 
+	  }
+	 60% { 
+	  -webkit-transform: scale (1.2); 
+	  transform: scale (1.2); 
+	  opacity: 1;
+	 }
+	 100% { 
+	 -webkit-transform: scale(1); 
+	 transform: scale(1);
+	  }
+	}
+	
+	 /*Fade-in and out*/
+	@-webkit-keyframes fadeInAndOut { 
+	 0% { 
+	 opacity: 0; 
+	  }
+	 50% { 
+	  opacity: 1;
+	 }
+	 100% { 
+	 opacity: 0;
+	  }
+	}
+
+	@keyframes fadeInAndOut { 
+	 0% { 
+	 opacity: 0; 
+	  }
+	 50% { 
+	  opacity: 1;
+	 }
+	 100% { 
+	 opacity: 0;
+	  }
+	}
+	     /*Opacity and Grow */
+	@-webkit-	@keyframes OpacityGrow { 
+	 0% { 
+	    opacity:0.8;
+        -webkit-transform:scale(1.0);
+                transform:scale(1.0);
+	 }
+	 100% {
+	    opacity:1;
+        -webkit-transform:scale(1.1);
+                transform:scale(1.1);
+	  }
+	}
+	@-webkit-keyframes OpacityGrow { 
+	 0% { 
+	    opacity:0.8;
+        -webkit-transform:scale(1.0);
+                transform:scale(1.0);
+	 }
+	 100% {
+	    opacity:1;
+        -webkit-transform:scale(1.1);
+                transform:scale(1.1);
+	  }
+	}
+	@keyframes OpacityGrow { 
+	 0% { 
+	    opacity:0.8;
+        -webkit-transform:scale(1.0);
+                transform:scale(1.0);
+	 }
+	 100% {
+	    opacity:1;
+        -webkit-transform:scale(1.1);
+                transform:scale(1.1);
+	  }
+	}
+	      /*Fade-In-Down*/
+	@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-1.25em);
+		transform: translateY(-1.25em);
+	    }
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	    }
+    }
+	
+	@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-1.25em);
+		transform: translateY(-1.25em);
+	    }
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	    }
+    }
+	 
+	/* Transitions */
+	@-webkit-keyframes midToLeft{ 
+	 0% { 
+	    left:50%;
+	 }
+	 100% {
+	    left:0%
+	  }
+	}
+	@keyframes midToLeft{ 
+	 0% { 
+	    left:50%;
+	 }
+	 100% {
+	    left:0%
+	  }
+	}
+	
+	/* Styles */ 
+	     /*Classes*/
+	
+	.navButton:active { 
+     -webkit-animation-duration: 0.5s; 
+     animation-duration: 0.5s; 
+	 -webkit-animation-name: fadeIn; 
+	 animation-name: fadeIn;
+	}
+	
+	.mealSection { 
+	 height:424px;
+	}
+	
+	.navButton:link { 
+	 color:white;
+	} 
+	
+	.navButton:visited { 
+	 color:rgb(211,211,211);
+	} 
+	
+	.navButton { 
+	 color:white; 
+	}
+	
+	.navButton:hover { 
+	 color:white; 
+	}
+	
+	.menuDt{ 
+	 padding-top:30px;
+	}
+	
+	.menuDd{ 
+	 font-size: 10px; 
+	 width:55%;	
+	}	
+	
+	.desertMeals > dd { 
+	 width:35%;
+	}	
+	
+		    /* Tags */
+		
+	h1 , h2 , h3 , a , dt { 
+	 font-family:TrajanusBricks;
+	}
+	
+	table { 
+	 width:100%;
+	 padding-top:2%;
+	}
+	
+	footer {
+	 position: fixed; 
+     bottom: 0; 
+	 -webkit-animation-duration: 3s; 
+	 animation-duration: 3s; 
+	 -webkit-animation-name: fadeIn; 
+	 animation-name: fadeIn;
+    } 
+	
+	body { 
+	 margin: 0px;
+	 background-color:black; 	 
+	}
+	
+	div , span , p{ 
+	 font-family:typo3;
+	}
+	
+	p { 
+	font-size:12px;
+	}
+	
+	details[open] {
+	 -webkit-animation-name: fadeInDown;
+	 animation-name: fadeInDown;
+     -webkit-animation-duration: 0.5s;
+     animation-duration: 0.5s;
+    }	
+	
+	#symbolImg { 
+	 width: 90px; 
+	 height: 90px; 
+	 -webkit-background-size:cover; 
+	 background-size:cover; 
+	 background-repeat:no-repeat;
+	}	
+	
+	#underlineImg { 
+	 width:150px;
+	 padding-left:7%;
+	 padding-right:7%;
+	}
+
+	#headerTxt { 
+	 color:white;
+	 text-align: center;
+	 margin-top:0px;
+	 margin-bottom:5px;
+	 font-size: 30px;
+	}
+
+	
+	
